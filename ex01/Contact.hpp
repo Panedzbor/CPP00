@@ -10,7 +10,7 @@ class Contact
         std::string nickname;
         std::string number;
         std::string secret;
-    
+
     public:
         void setFields(const std::string &name, const std::string &surname, const std::string &nickname,
                         const std::string &number, const std::string &secret);
