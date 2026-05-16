@@ -1,0 +1,1 @@
+git diff --no-index --word-diff=color --word-diff-regex=. old.txt new.txt | less -R
