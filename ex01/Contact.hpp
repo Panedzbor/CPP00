@@ -1,6 +1,8 @@
 #pragma once
+#ifndef CONTACT_H
+#define CONTACT_H
 
-#include <string>
+# include <string>
 
 class Contact
 {
@@ -20,3 +22,5 @@ class Contact
         const std::string &getNumber() const;
         const std::string &getSecret() const;
 };
+
+#endif

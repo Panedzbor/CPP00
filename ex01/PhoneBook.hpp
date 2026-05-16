@@ -1,4 +1,6 @@
 #pragma once
+#ifndef PHONEBOOK_H
+#define PHONEBOOK_H
 
 #include "Contact.hpp"
 
@@ -20,3 +22,5 @@ class PhoneBook
         void addContact(void);
         void searchContact(void) const;
 };
+
+#endif
