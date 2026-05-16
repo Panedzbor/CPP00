@@ -20,7 +20,7 @@ void PhoneBook::addContact(void)
 void PhoneBook::collectContactInfo(std::string &name, std::string &surname, std::string &nickname,
                                     std::string &number, std::string &secret)
 {
-    std::cout << "__Collecting contact info__\n\n";
+    std::cout << "__Collecting contact info__\n";
     std::cout << "Enter contact name: ";
     std::getline(std::cin, name);
     while (name.empty())
@@ -62,7 +62,7 @@ void PhoneBook::saveNewContact(const std::string &name, const std::string &surna
                         const std::string &number, const std::string &secret)
 {
     contacts[counter++].setFields(name, surname, nickname, number, secret);
-    std::cout << "Contact saved\n";
+    std::cout << "Contact saved\n\n";
     if (counter == 8)
         counter = 0;
 }
@@ -94,9 +94,11 @@ void PhoneBook::displayAllContacts() const
             truncateAndPrint(contacts[i].getSurname());
             std::cout << '|';
             truncateAndPrint(contacts[i].getNickname());
-            std::cout << "\n\n";
+            std::cout << "\n";
         }
     }
+    if (!contacts[0].getName().empty())
+        std::cout << '\n';
 }
 
 static void truncateAndPrint(std::string str)
@@ -121,12 +123,12 @@ unsigned int PhoneBook::askForIndex(void) const
         std::cout << "Wrong index.\n";
         std::cout << "Type in the contact's index you want to see: ";
     }
+    std::cout << '\n';
     return (i - 1);
 }
 
 void PhoneBook::displaySelectedContact(int i) const
 {
-    std::cout << '\n';
     std::cout << std::setw(17) << "Name: ";
     std::cout << contacts[i].getName() << '\n';
     std::cout << std::setw(17) << "Surname: ";
@@ -137,4 +139,5 @@ void PhoneBook::displaySelectedContact(int i) const
     std::cout << contacts[i].getNumber() << '\n';
     std::cout << std::setw(17) << "Darkest Secret: ";
     std::cout << contacts[i].getSecret() << '\n';
+    std::cout << '\n';
 }

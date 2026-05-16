@@ -2,10 +2,11 @@ COMPILER = c++
 FLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 NAME = phonebook
-SRCS = main.cpp Contact.cpp PhoneBook.cpp
-OBJS = $(SRCS:.cpp=.o)
+SRCS = $(wildcard *.cpp)
+OBJ_DIR = obj
+OBJS = $(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 INCLUDES = Contact.hpp PhoneBook.hpp
-RM = rm -f
+RM = rm -rf
 
 .PHONY: all clean fclean re
 
@@ -14,11 +15,12 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(COMPILER) $(FLAGS) -o $@ $^
 
-%.o: %.cpp $(INCLUDES)
+$(OBJ_DIR)/%.o: %.cpp $(INCLUDES)
+	@mkdir -p $(dir $@)
 	$(COMPILER) $(FLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJ_DIR)
 
 fclean: clean
 	$(RM) $(NAME)

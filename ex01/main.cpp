@@ -10,8 +10,8 @@ int main(void)
     std::cout << "\n\n\n\nPhoneBook Magic Deluxe Crazy Midnight Display v. 287626.27\n\n\n\n";
     while (input != "EXIT")
     {
-        std::cout << "\nEnter a valid command\n";
-        std::cout << "Available commands: ADD, SEARCH, EXIT\n\n";
+        std::cout << "Enter a valid command\n";
+        std::cout << "Available commands: ADD, SEARCH, EXIT\n";
         std::cout << "Your command: ";
         std::cin >> input;
         std::cin.ignore();
